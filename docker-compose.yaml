@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  postgis:
+    image: postgis/postgis:latest
+    container_name: gaia_postgis
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+
+  neo4j:
+    image: neo4j:latest
+    container_name: gaia_neo4j
+    environment:
+      NEO4J_AUTH: ${NEO4J_USER}/${NEO4J_PASSWORD}
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  postgis_data:
+  neo4j_data:

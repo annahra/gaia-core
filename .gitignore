@@ -1,0 +1,19 @@
+.env
+
+# Ignore virtual environment directories
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore database data and logs
+*.db
+*.sqlite3
+
+# Ignore system files (macOS)
+.DS_Store
+
+# Ignore logs and temporary files
+*.log
+*.tmp
